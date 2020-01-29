@@ -32,13 +32,8 @@ class DeckTest < Minitest::Test
   def test_it_can_return_cards_in_given_category
 
     assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
+    assert_equal [@card_1], @deck.cards_in_category(:Geography)
+    assert_equal [], @deck.cards_in_category("Pop Culture")
   end
-
-
-    # pry(main)> deck.cards_in_category(:Geography)
-    # #=> [#<Card:0x00007fa16104e160...>]
-    #
-    # pry(main)> deck.cards_in_category("Pop Culture")
-    # #=> []
 
 end
