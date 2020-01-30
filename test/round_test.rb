@@ -38,6 +38,8 @@ class RoundTest < Minitest::Test
     turn = @round.take_turn("Juneau")
 
     assert_instance_of Turn, turn
+    assert_equal "Juneau", turn.guess
+    assert_equal @card_2, @round.current_card
   end
 
 end
