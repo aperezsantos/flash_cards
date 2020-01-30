@@ -11,7 +11,6 @@ class RoundTest < Minitest::Test
     @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     @deck = Deck.new([@card_1, @card_2, @card_3])
-    @turn = Turn.new("Juneau", @card_1)
     @round = Round.new(@deck)
   end
 
@@ -36,18 +35,9 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_creates_new_turn
+    turn = @round.take_turn("Juneau")
 
-    assert_equal "Juneau", @round.take_turn("Juneau").guess
-    assert_equal @card_1, @round.take_turn("Juneau").card
-    assert_equal Turn, @round.take_turn("Juneau").class
-    assert_equal true, @round.take_turn("Juneau").correct?
-  end
-
-  def test_it_records_turns
-    @round.take_turn("Juneau")
-
-    assert_equal 1, @round.turns.length
-    assert_equal Array, @round.turns.class
+    assert_instance_of Turn, turn
   end
 
 end
