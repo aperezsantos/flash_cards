@@ -7,7 +7,7 @@ class Turn
   end
 
   def correct?
-    card.answer == @guess ? true : false
+    card.answer == @guess
   end
 
   def feedback
