@@ -39,11 +39,14 @@ class RoundTest < Minitest::Test
 
     assert_instance_of Turn, turn1
     assert_equal [turn1], @round.turns
+    assert_equal 1, @round.turns.count
 
     turn2 = @round.take_turn("Pluto")
 
     assert_instance_of Turn, turn2
     assert_equal [turn1, turn2], @round.turns
+    assert_equal 2, @round.turns.count
+
   end
 
   def test_take_turn_shifts_cards_in_deck
