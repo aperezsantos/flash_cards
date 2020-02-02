@@ -34,12 +34,23 @@ class RoundTest < Minitest::Test
     assert_equal @card_1, @round.current_card
   end
 
-  def test_it_creates_new_turn
-    turn = @round.take_turn("Juneau")
+  def test_it_can_create_turns
 
-    assert_instance_of Turn, turn
-    assert_equal "Juneau", turn.guess
+    assert_instance_of Turn, @round.take_turn("Juneau", @card_1)
     assert_equal @card_2, @round.current_card
+    assert_instance_of Turn, @round.take_turn("Pluto", @card_2)
+    assert_equal @card_3, @round.current_card
+    assert_instance_of Turn, @round.take_turn("I don't know", @card_3)
+  end
+
+  def test_take_turn_shifts_cards_in_deck
+    @round.take_turn("Pluto", @card_2)
+
+    assert_equal @card_2, @round.current_card
+
+    @round.take_turn("I don't know", @card_3)
+
+    assert_equal @card_3, @round.current_card
   end
 
 end
