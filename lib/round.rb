@@ -17,4 +17,10 @@ class Round
     turn
   end
 
+  def number_correct
+    @turns.count do |turn|
+      turn.correct?
+    end
+  end
+
 end

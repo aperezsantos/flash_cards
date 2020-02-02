@@ -56,4 +56,16 @@ class RoundTest < Minitest::Test
     assert_equal @card_3, @round.current_card
   end
 
+  def test_it_can_track_correct_answers
+    turn1 = @round.take_turn("Juneau")
+    turn2 = @round.take_turn("Pluto")
+    turn3 = @round.take_turn("I don't know")
+
+    assert_equal true, turn1.correct?
+    assert_equal false, turn2.correct?
+    assert_equal false, turn3.correct?
+
+    assert_equal 1, @round.number_correct
+  end
+
 end
