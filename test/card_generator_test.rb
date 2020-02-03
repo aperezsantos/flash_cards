@@ -6,15 +6,15 @@ require './lib/card'
 class CardGeneratorTest < Minitest::Test
 
   def test_it_exists
-    cards = CardGenerator.new("cards.txt")
+    card_generator = CardGenerator.new('./lib/cards.txt')
 
-    assert_instance_of CardGenerator, cards
+    assert_instance_of CardGenerator, card_generator
   end
 
   def test_it_has_file_path
-    cards = CardGenerator.new("cards.txt")
+    card_generator = CardGenerator.new('./lib/cards.txt')
 
-    assert_equal "cards.txt", cards.file
+    assert_equal './lib/cards.txt', card_generator.file
   end
 
 end
