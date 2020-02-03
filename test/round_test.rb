@@ -19,7 +19,7 @@ class RoundTest < Minitest::Test
     assert_instance_of Round, @round
   end
 
-  def test_it_has_deck
+  def test_it_initializes_with_deck
 
     assert_equal @deck, @round.deck
   end
@@ -46,7 +46,12 @@ class RoundTest < Minitest::Test
     assert_instance_of Turn, turn2
     assert_equal [turn1, turn2], @round.turns
     assert_equal 2, @round.turns.count
+  end
 
+  def test_turn_has_class
+    turn1 = @round.take_turn("Juneau")
+
+    assert_equal Turn, turn1.class
   end
 
   def test_take_turn_shifts_cards_in_deck
@@ -70,40 +75,35 @@ class RoundTest < Minitest::Test
     assert_equal false, turn2.correct?
     assert_equal "Incorrect.", @round.turns.last.feedback
 
-    turn3 = @round.take_turn("I don't know")
-
-    assert_equal false, turn3.correct?
-    assert_equal "Incorrect.", @round.turns.last.feedback
-
     assert_equal 1, @round.number_correct
   end
 
   def test_number_correct_by_category
-    turn1 = @round.take_turn("Juneau")
-    turn2 = @round.take_turn("Pluto")
-    turn3 = @round.take_turn("I don't know")
+    @round.take_turn("Juneau")
+    @round.take_turn("Pluto")
+    @round.take_turn("I don't know")
 
     assert_equal 1, @round.number_correct_by_category(:Geography)
     assert_equal 0, @round.number_correct_by_category(:STEM)
   end
 
-  def test_percent_correct
-    turn1 = @round.take_turn("Juneau")
-    turn2 = @round.take_turn("Pluto")
+  def test_it_can_calculate_percent_correct
+    @round.take_turn("Juneau")
+    @round.take_turn("Pluto")
 
     assert_equal 50.0, @round.percent_correct
 
-    turn3 = @round.take_turn("I don't know")
+    @round.take_turn("I don't know")
 
-    assert_equal 33.3, @round.percent_correct
+    assert_equal 33.33, @round.percent_correct
   end
 
   def test_percent_correct_by_category
     turn1 = @round.take_turn("Juneau")
-    turn2 = @round.take_turn("Pluto")
+    turn2 = @round.take_turn("Mars")
     turn3 = @round.take_turn("I don't know")
 
-    assert_equal 100, @round.percent_correct_by_category(:Geography)
-    assert_equal 0, @round.percent_correct_by_category(:STEM)
+    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
+    assert_equal 50.0, @round.percent_correct_by_category(:STEM)
   end
 end
