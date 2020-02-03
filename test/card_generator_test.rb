@@ -17,4 +17,10 @@ class CardGeneratorTest < Minitest::Test
     assert_equal './lib/cards.txt', card_generator.file
   end
 
+  def test_it_returns_array_of_cards
+    card_generator = CardGenerator.new('./lib/cards.txt')
+
+    assert_equal Array, card_generator.cards.class
+  end
+
 end
