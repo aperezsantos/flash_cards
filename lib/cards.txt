@@ -2,3 +2,7 @@ What is 5 + 5?,10,STEM
 What is Rachel's favorite animal?,red panda,Turing Staff
 What is Mike's middle name?,nobody knows,Turing Staff
 What cardboard cutout lives at Turing?,Justin bieber,PopCulture
+What famous actor starred in the movie 'Clue' that also starred in the 'The Rocky Horror Picture Show'?,Tim Curry,:BoardGames
+Futbol is the most popular game in the world. What do we call it in the U.S.?,Soccer,:Sports
+What is the home province of the Khajiit in the world of Elder Scrolls?,Elsweyr,:VideoGames
+What life-size game is played in 'Harry Potter and the Sorcerer's Stone'?,Chess,:BoardGames

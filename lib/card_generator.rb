@@ -23,5 +23,6 @@ class CardGenerator
       card = Card.new(question, answer, category)
       @alternative_cards << card
     end
+    @alternative_cards
   end
 end
