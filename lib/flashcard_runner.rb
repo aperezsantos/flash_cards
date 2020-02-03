@@ -10,13 +10,11 @@ def start
   @deck = Deck.new(@card_generator.cards)
   @round = Round.new(@deck)
 
-  require "pry"; binding.pry
-
   puts "------------------------------------"
-  puts "Welcome! You're playing with #{@deck.cards.length} cards."
+  puts "Welcome! You're playing with #{@round.deck.cards.length} cards."
   puts "------------------------------------"
   puts " "
-  puts "This is card number 1 out of 3."
+  puts "This is card number 1 out of #{@round.deck.cards.length}."
   puts " "
   puts "Question: #{@round.current_card.question}"
   puts "Guess:"
@@ -24,7 +22,7 @@ def start
   puts @round.turns.last.feedback
   puts "------------------------------------"
   puts " "
-  puts "This is card number 2 out of 3."
+  puts "This is card number 2 out of #{@round.deck.cards.length}."
   puts " "
   puts "Question: #{@round.current_card.question}"
   puts "Guess:"
@@ -32,7 +30,47 @@ def start
   puts @round.turns.last.feedback
   puts "------------------------------------"
   puts " "
-  puts "This is card number 3 out of 3."
+  puts "This is card number 3 out of #{@round.deck.cards.length}."
+  puts " "
+  puts "Question: #{@round.current_card.question}"
+  puts "Guess:"
+  @round.take_turn(gets.chomp)
+  puts @round.turns.last.feedback
+  puts "------------------------------------"
+  puts " "
+  puts "This is card number 4 out of #{@round.deck.cards.length}."
+  puts " "
+  puts "Question: #{@round.current_card.question}"
+  puts "Guess:"
+  @round.take_turn(gets.chomp)
+  puts @round.turns.last.feedback
+  puts "------------------------------------"
+  puts " "
+  puts "This is card number 5 out of #{@round.deck.cards.length}."
+  puts " "
+  puts "Question: #{@round.current_card.question}"
+  puts "Guess:"
+  @round.take_turn(gets.chomp)
+  puts @round.turns.last.feedback
+  puts "------------------------------------"
+  puts " "
+  puts "This is card number 6 out of #{@round.deck.cards.length}."
+  puts " "
+  puts "Question: #{@round.current_card.question}"
+  puts "Guess:"
+  @round.take_turn(gets.chomp)
+  puts @round.turns.last.feedback
+  puts "------------------------------------"
+  puts " "
+  puts "This is card number 7 out of #{@round.deck.cards.length}."
+  puts " "
+  puts "Question: #{@round.current_card.question}"
+  puts "Guess:"
+  @round.take_turn(gets.chomp)
+  puts @round.turns.last.feedback
+  puts "------------------------------------"
+  puts " "
+  puts "This is card number 8 out of #{@round.deck.cards.length}."
   puts " "
   puts "Question: #{@round.current_card.question}"
   puts "Guess:"
