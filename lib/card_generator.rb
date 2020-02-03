@@ -14,5 +14,14 @@ class CardGenerator
     File.open(file).each do |line|
       @split_data << line.chomp.split(",")
     end
+
+    @split_data.each do |element|
+      question = element[0]
+      answer = element[1]
+      category = element[2]
+
+      card = Card.new(question, answer, category)
+      @alternative_cards << card
+    end
   end
 end
